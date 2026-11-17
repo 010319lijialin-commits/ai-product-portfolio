@@ -76,7 +76,31 @@ main[hidden]{display:none!important}.ledger-business{background:linear-gradient(
 /* Compact introduction; product cards follow directly. */
 #home .hero{display:block;min-height:0;padding:64px 0 48px}#home .hero-copy{max-width:880px}#home .hero h1{font-size:clamp(40px,5.4vw,70px)}#home .hero p{max-width:630px}#home .work{padding-top:20px}@media(max-width:600px){#home .hero{padding:40px 0 32px}#home .work{padding-top:16px}}
 .top .brand{display:inline-flex;align-items:center;font-size:26px;letter-spacing:-.055em;font-weight:700}.top .brand .square{font-size:26px;font-weight:500;line-height:1;margin-right:10px}.top .brand em{letter-spacing:-.055em}.top .nav{gap:22px}@media(max-width:420px){.top .brand{font-size:22px}.top .nav{gap:12px;font-size:11px}.top .nav .navlink{padding:8px 10px}}
-</style></head><body>
+</style><script id="pluszero-analytics">
+// Vercel Web Analytics: count logical pages in this hash-routed static site.
+(function () {
+  if (location.hostname !== 'pluszero.vercel.app') return;
+  window.va = window.va || function () {
+    (window.vaq = window.vaq || []).push(arguments);
+  };
+  let lastPage = null;
+  function recordPage() {
+    const path = location.hash.startsWith('#/ledger') ? '/ledger'
+      : location.hash.startsWith('#/zhi') ? '/zhi' : '/';
+    // Home anchors such as #work do not constitute another page view.
+    if (path === lastPage) return;
+    lastPage = path;
+    window.va('pageview', { path: path, route: path });
+  }
+  const collector = document.createElement('script');
+  collector.defer = true;
+  collector.src = '/_vercel/insights/script.js';
+  collector.dataset.disableAutoTrack = '1';
+  document.head.appendChild(collector);
+  recordPage();
+  window.addEventListener('hashchange', recordPage);
+}());
+</script></head><body>
 <div id="ambient" aria-hidden="true"></div>
 <div class="wrap"><header class="top"><a class="brand" href="#/" aria-label="pluszero 首页"><span class="square" aria-hidden="true">+</span>plus<em>zero</em></a><nav class="nav"><a href="#/">首页</a><a href="#work">作品</a><a class="navlink" target="_blank" rel="noopener noreferrer" href="https://github.com/010319lijialin-commits">GitHub ↗</a></nav></header>
 <main id="home">
